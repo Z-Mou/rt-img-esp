@@ -1,0 +1,7 @@
+{
+  "name": "IoT pictures list",
+  "description": "Node.js app using Express 4 of list images filtering in real-time through esp32 & FreeRTOS and AV7076",
+  "repository": "https://github.com/heroku/rt-img-esp",
+  "keywords": ["node", "express", "heroku"],
+  "image": "heroku/nodejs"
+}
