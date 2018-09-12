@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 const bytes = require('bytes');
 const { Pool } = require('pg'); // PostgreSQL
 
-//const connectionString = process.env.DATABASE_URL;
-const connectionString = process.env.DATABASE_LOCAL_URL;
+const connectionString = process.env.DATABASE_URL;
+//const connectionString = process.env.DATABASE_LOCAL_URL;
 
 const pool = new Pool({
   connectionString: connectionString,
