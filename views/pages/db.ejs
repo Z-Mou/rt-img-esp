@@ -15,15 +15,15 @@
     </section>
 
     <div class="album py-5 bg-light">        
-            <h2>Database Results</h2>
-        
-            <ul>
+        <div class="container">
+            <div class="row">
                 <% if (data) { %>
                     <% data.forEach(function(r) { %>
-                        <li><%= r.id %> - <%= r.name %></li>
+                        <%- include('../partials/picture.ejs', {id: r.id_picture, text: r.text_picture, image: r.image_picture, time: r.time_picture}); %>
                     <% }); %>
-                <% } %>
-            </ul>
+                <% } %>        
+            </div>
+        </div>
     </div>
 
   </main>

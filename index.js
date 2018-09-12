@@ -6,8 +6,7 @@ const bytes = require('bytes');
 const { Pool } = require('pg'); // PostgreSQL
 
 //const connectionString = process.env.DATABASE_URL;
-//const connectionString = process.env.DATABASE_LOCAL_URL;
-const connectionString = "postgresql://my_new_user:secretpassword@localhost:5432/my_new_database";
+const connectionString = process.env.DATABASE_LOCAL_URL;
 
 const pool = new Pool({
   connectionString: connectionString,
@@ -15,7 +14,7 @@ const pool = new Pool({
 });
 
 const PORT = process.env.PORT || 5000;
-const QUERY = 'SELECT * FROM test_table';
+const QUERY = 'SELECT * FROM pictures_table';
 
 express()
   .use(bodyParser.raw({ type: 'image/jpeg', limit: bytes('1MB') }))// parse some custom thing into a Buffer
@@ -44,6 +43,8 @@ express()
       req.connection.destroy();
     }*/
     
+    console.log("POSTED!!");
+    
     let f = fs.createWriteStream('out.jpeg');
     let body = '';
     
@@ -54,7 +55,7 @@ express()
     req.on('data', (chunk) => {
       body += chunk;
     });
-    console.log("POSTED!!");
+
     // the 'end' event indicates that the entire body has been received
     req.on('end', () => {
       try {

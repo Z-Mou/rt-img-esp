@@ -1,0 +1,30 @@
+curl -i -H "Accept: application/json" \
+        -H "Content-Type: multipart/form-d" \
+        -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
+        -H "Accept-Encoding: gzip,deflate" \
+        -H "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7" \
+        -H "User-Agent: esp32" \
+        -H "Keep-Alive: 200" \
+        -H "Connection: keep-alive" \
+        -H "Accept-Language: en-gb" \
+        --data "param1=value1&param2=value2" \
+        -X POST localhost:5000
+
+curl \
+        -H 'Content-Transfer-Encoding: utf8' \
+        -H 'Content-Type: multipart/form-data' \
+        -H "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7" \
+        -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
+        -H "User-Agent: esp32" \
+        -H "Keep-Alive: 200" \
+        -H "Connection: keep-alive" \
+        -H "Accept-Language: en-gb" \
+        -F "filecomment=This is an image file" \
+        -F "image=@/home/YOUR_DIRRECTORY/images.jpeg" \
+        -X POST localhost:5000
+
+curl \
+        -H 'Content-Type: application/json' \
+        -H 'Content-Transfer-Encoding: utf8' \
+        --data-binary  "@/home/YOUR_DIRRECTORY/images.jpeg" \
+        -X POST localhost:5000
